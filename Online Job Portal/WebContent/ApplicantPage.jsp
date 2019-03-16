@@ -73,7 +73,7 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="UpdateProfile.jsp">Update Profile</a></p>
+      <p><form action="UpdateUser"><a href='UpdateUser'>Update Profile</a></form></p>
       <p><a href="JobApply.jsp">Job Search</a></p>
       
     </div>

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.niit.Credentials.dao.RegisterUserDao;
+import com.niit.Credentials.dao.EmployeeDAO;
 
 
 @WebServlet("/RegisterUser")
@@ -34,8 +34,8 @@ public class RegisterUser extends HttpServlet {
 	 	String PI =request.getParameter("industry");
 	 	String skill=request.getParameter("keySkills");
 	 	
-	 	RegisterUserDao dao=new RegisterUserDao();
-	 	if(dao.update(Uemail,Ufname,Ulname,UserName,Password,gen,exp,PI,skill)==1) {
+	 	EmployeeDAO dao=new EmployeeDAO();
+	 	if(dao.save(Uemail,Ufname,Ulname,UserName,Password,gen,exp,PI,skill)==1) {
 	 		response.sendRedirect("HomePage.html");
 	 	}else {
 	 		p.println("<script type=\"text/javascript\">"); 
