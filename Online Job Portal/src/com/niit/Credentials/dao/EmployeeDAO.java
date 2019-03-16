@@ -39,20 +39,20 @@ public class EmployeeDAO {
 	public static int update(Employee e,String Umail) {
 		int status = 0;
 		try {
+			System.out.println(Umail);
 			System.out.println("update method called");
 			con = SqlConnection.dbConnector();
-			PreparedStatement st = con.prepareStatement(
-					"UPDATE candidates SET email =? ,FirstName= ?, LastName=?,UserName=?,Password=?,Gender= ?,Expirence = ?,Current/Prefered Industry = ?,keySkills =?,	WHERE email =? ");
-			st.setString(1, e.getUemail());
-			st.setString(2, e.getUfname());
-			st.setString(3, e.getUlname());
-			st.setString(4, e.getUserName());
-			st.setString(5, e.getPassword());
-			st.setString(6, e.getGen());
-			st.setString(7, e.getExp());
-			st.setString(8, e.getPI());
-			st.setString(9, e.getSkill());
-			st.setString(10, Umail);
+			PreparedStatement st = con.prepareStatement("UPDATE candidates SET FirstName= ?, LastName=?, UserName=?, Password=?, Gender= ?, Expirence = ?,  Industry= ?, keySkills =? WHERE email =? ");
+			
+			st.setString(1, e.getUfname());
+			st.setString(2, e.getUlname());
+			st.setString(3, e.getUserName());
+			st.setString(4, e.getPassword());
+			st.setString(5, e.getGen());
+			st.setString(6, e.getExp());
+			st.setString(7, e.getPI());
+			st.setString(8, e.getSkill());
+			st.setString(9, Umail);
 			status = st.executeUpdate();
 			if(status>0) {System.out.println("updated success");}
 			return status;
