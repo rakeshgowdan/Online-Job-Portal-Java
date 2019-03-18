@@ -17,7 +17,7 @@ public class EmployeeDAO {
 			String exp, String PI, String skill) {
 		try {
 			con = SqlConnection.dbConnector();
-			String query = "INSERT INTO candidates VALUES (?,?,?,?,?,?,?,?,?)";
+			String query = "INSERT INTO employee VALUES (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, Uemail);
 			st.setString(2, Ufname);
@@ -38,17 +38,21 @@ public class EmployeeDAO {
 
 	public static int update(Employee e,String Umail) {
 		int status = 0;
+
+		
 		try {
 			System.out.println(Umail);
-			System.out.println("update method called");
+		
 			con = SqlConnection.dbConnector();
-			PreparedStatement st = con.prepareStatement("UPDATE candidates SET FirstName= ?, LastName=?, UserName=?, Password=?, Gender= ?, Expirence = ?,  Industry= ?, keySkills =? WHERE email =? ");
+			PreparedStatement st = con.prepareStatement("UPDATE employee SET FirstName= ?, LastName=?, UserName=?, Password=?, Gender= ?, Expirence = ?,  Industry= ?, keySkills =? WHERE email =? ");
 			
 			st.setString(1, e.getUfname());
 			st.setString(2, e.getUlname());
 			st.setString(3, e.getUserName());
 			st.setString(4, e.getPassword());
+			
 			st.setString(5, e.getGen());
+			System.out.println(e.getGen());
 			st.setString(6, e.getExp());
 			st.setString(7, e.getPI());
 			st.setString(8, e.getSkill());
@@ -62,12 +66,13 @@ public class EmployeeDAO {
 		return 0;
 	}
 
+
 	public static Employee getEmployeeById(String Uemail) {
 		Employee e = new Employee();
-  System.out.println(" email id is collected");
+       System.out.println(e);
 		try {
 			con = SqlConnection.dbConnector();
-			PreparedStatement ps = con.prepareStatement("select * from candidates where  email=?");
+			PreparedStatement ps = con.prepareStatement("select * from employee where  email=?");
 			ps.setString(1, Uemail);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
@@ -80,7 +85,7 @@ public class EmployeeDAO {
 				e.setExp(rs.getString(7));
 				e.setPI(rs.getString(8));
 				e.setSkill(rs.getString(9));
-				System.out.println("data sent for update page");
+				
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();

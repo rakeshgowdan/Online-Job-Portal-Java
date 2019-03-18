@@ -11,7 +11,7 @@ public class SqlConnection {
 	    	String url = "jdbc:mysql://localhost:3306/jobPortal";
 	    	Class.forName ("com.mysql.jdbc.Driver").newInstance ();
 	    	Connection conn = DriverManager.getConnection (url, "root", "root");
-	    	System.out.println("connection successful ");
+	    
 	    	return conn;
 	    	
 	    }

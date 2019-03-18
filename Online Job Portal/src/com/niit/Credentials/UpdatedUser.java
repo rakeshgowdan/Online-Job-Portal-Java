@@ -15,22 +15,22 @@ import java.io.PrintWriter;
 public class UpdatedUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("updatd user called");
+		
 		response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
         HttpSession session=request.getSession(); 
         String Umail=(String)session.getAttribute("EMAIL");
           
-        String Uemail = request.getParameter("email");
-	 	String Ufname = request.getParameter("firstName");
-	 	String Ulname = request.getParameter("lastName");
-	 	String UserName = request.getParameter("userName");
-	 	String Password = request.getParameter("passwd");
-	 	String gen = request.getParameter("gender");
-	 	String exp =request.getParameter("exp_in_years");
-	 	String PI =request.getParameter("industry");
-	 	String skill=request.getParameter("keySkills");
-          
+        String Uemail = request.getParameter("E-mail");
+	 	String Ufname = request.getParameter("FirstName");
+	 	String Ulname = request.getParameter("LastName");
+	 	String UserName = request.getParameter("UserName");
+	 	String Password = request.getParameter("Password");
+	 	String gen = request.getParameter("Gender");
+	 	String exp =request.getParameter("Expirence");
+	 	String PI =request.getParameter("PreferedIndustry");
+	 	String skill=request.getParameter("KeySkills");
+     
         Employee e=new Employee();  
         e.setUemail(Uemail);
         e.setUfname(Ufname);

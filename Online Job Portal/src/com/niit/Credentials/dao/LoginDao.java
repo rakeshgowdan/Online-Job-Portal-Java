@@ -9,7 +9,7 @@ import com.niit.SqlConnect.SqlConnection;
 
 public class LoginDao  {
 
-	String query = "select * from candidates where email=? and Password=?";
+	String query = "select * from employee where email=? and Password=?";
 	Connection con=null;
 	public boolean validate(String E_mail, String pass) {
 		try {
