@@ -13,10 +13,10 @@ import java.sql.*;
 
 public class JobDao {
 
-	Connection con = null;
+	static Connection con = null;
 
-	public List<Job> list() throws SQLException {
-		System.out.println("invoked");
+	public  static List<Job> list() throws SQLException {
+		
 	        List<Job> jobs = new ArrayList<Job>();
              System.out.println("job dao called");
 	        try {
@@ -37,6 +37,7 @@ public class JobDao {
 	                j.setIplace(resultSet.getString("Interview Place"));
 	                j.setSkills(resultSet.getString("Skills"));
 	                jobs.add(j);
+	                System.out.println("DAO::list added in dao");
 	            }
 	            System.out.println(jobs);
 		        return jobs;

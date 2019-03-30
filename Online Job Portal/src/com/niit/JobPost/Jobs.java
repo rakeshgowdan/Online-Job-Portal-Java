@@ -2,6 +2,7 @@ package com.niit.JobPost;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -21,19 +22,19 @@ public class Jobs extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-	    private JobDao JD=new JobDao();
-    public Jobs() { super();}
-
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 try {
-			 System.out.println("servlet called");
-	            List<Job>  J= JD.list();
-	            System.out.println(JD.list());
-	            request.setAttribute("Jobs", J); // Will be available as ${jobs} in JSp
-	            request.getRequestDispatcher("JobApply.jsp").forward(request, response);
-	        } catch (SQLException e) {
-	            throw new ServletException("Cannot obtain products from DB", e);
-	        }
+		response.setContentType("text/html");  
+		System.out.println("jobs servlet called");
+		 try {List<Job> jobs =JobDao.list();
+		 request.setAttribute("JobList",jobs);
+		 System.out.println("list loading done");
+		 request.getRequestDispatcher("JobApply.jsp").forward(request, response);
+		 
+		 } catch (SQLException e) {System.out.println(e);}
+		 
+		 
+		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

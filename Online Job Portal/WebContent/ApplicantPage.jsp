@@ -74,7 +74,8 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
       <p><form action="UpdateUser" method="post"><a href='UpdateUser'>Update Profile</a></form></p>
-      <p><a href="JobApply.jsp">Job Search</a></p>
+      <p><form action="Jobs" method="post"><a href="Jobs">Job Search</a></form></p>
+       <p><a href="">Upload Resume</a></p>
       
     </div>
     <div class="col-sm-8 text-left"> 

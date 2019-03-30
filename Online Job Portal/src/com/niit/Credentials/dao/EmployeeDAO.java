@@ -45,14 +45,11 @@ public class EmployeeDAO {
 		
 			con = SqlConnection.dbConnector();
 			PreparedStatement st = con.prepareStatement("UPDATE employee SET FirstName= ?, LastName=?, UserName=?, Password=?, Gender= ?, Expirence = ?,  Industry= ?, keySkills =? WHERE email =? ");
-			
 			st.setString(1, e.getUfname());
 			st.setString(2, e.getUlname());
 			st.setString(3, e.getUserName());
 			st.setString(4, e.getPassword());
-			
-			st.setString(5, e.getGen());
-			System.out.println(e.getGen());
+	
 			st.setString(6, e.getExp());
 			st.setString(7, e.getPI());
 			st.setString(8, e.getSkill());
