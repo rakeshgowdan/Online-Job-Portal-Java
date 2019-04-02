@@ -4,13 +4,15 @@ public class Job {
 
 	private String Location;
 	private String Farea;
-	private String Jpost;
+	private String jpost;
 	private int Vacancy;
 	private String salary;
 	private String Idate;
 	private String Itime;
 	private String Iplace;
 	private String skills;
+	private String company;
+	
 	public String getLocation() {
 		return Location;
 	}
@@ -23,17 +25,20 @@ public class Job {
 	public void setFarea(String farea) {
 		Farea = farea;
 	}
-	@Override
-	public String toString() {
-		return "Job [Location=" + Location + ", Farea=" + Farea + ", Jpost=" + Jpost + ", Vacancy=" + Vacancy
-				+ ", salary=" + salary + ", Idate=" + Idate + ", Itime=" + Itime + ", Iplace=" + Iplace + ", skills="
-				+ skills + "]";
-	}
+	
+	
+	
 	public String getJpost() {
-		return Jpost;
+		return jpost;
 	}
 	public void setJpost(String jpost) {
-		Jpost = jpost;
+		this.jpost = jpost;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
 	}
 	public int getVacancy() {
 		return Vacancy;
