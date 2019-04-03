@@ -1,6 +1,5 @@
 package com.niit.JobBean.dao;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,4 +60,27 @@ public class JobDao {
 		} catch (Exception e) {System.out.println(e);}
 		
 		return null;}
+	
+	public int applyToJob(String CompanyName,String JobPost,String Email,String FullName, String MobileNo,String Skills) {
+		try {
+			con = SqlConnection.dbConnector();
+			String query = "INSERT INTO appliedjobs VALUES (?,?,?,?,?,?,?,?)";
+			PreparedStatement st = con.prepareStatement(query);
+			String Applied="yes";
+			String Approved="NO";
+			st.setString(1, CompanyName);
+			st.setString(2, JobPost);
+			st.setString(3, Email);
+			st.setString(4, FullName);
+			st.setString(5, MobileNo);
+			st.setString(6, Skills);
+			st.setString(7, Applied);
+			st.setString(8, Approved);
+			int i = st.executeUpdate();
+			return i;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
 }

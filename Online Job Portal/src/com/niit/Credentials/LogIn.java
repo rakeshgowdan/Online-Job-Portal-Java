@@ -30,7 +30,7 @@ public class LogIn extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("EMAIL", email);
 			
-			if (email.equals("admin@jobportal.com")) {
+			if (email.equals("HR.admin@jobportal.com")) {
 				RequestDispatcher dd = request.getRequestDispatcher("Admin.jsp");
 				dd.forward(request, response);
 

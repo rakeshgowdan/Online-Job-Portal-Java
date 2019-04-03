@@ -70,7 +70,7 @@ a {
 
 <body>
 
-<form action="SubmitJob">
+<form action="SubmitJob" method="post">
   <div class="container">
     <h1>Register</h1>
     <hr>
@@ -83,16 +83,16 @@ a {
     <input type="text"  name="Jpost" value="${ApplyJobList.jpost}" readonly><br>
     
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required><br>
+    <input type="text" name="email" placeholder="Enter Email" name="email" required><br>
 
     <label ><b>Full Name</b></label>
-    <input type="text" placeholder="Enter FullName" name="name" required><br>
+    <input type="text" name="Fname" placeholder="Enter FullName" name="name" required><br>
 
     <label ><b>Mobile Number</b></label>
-    <input type="text" placeholder="Enter Mobile.No " name="number" required><br>
+    <input type="text" name="Mno" placeholder="Enter Mobile.No " name="number" required><br>
     
     <label ><b>Skills Matched</b></label>
-    <input type="text" placeholder="Enter skills matched as per required " name="skill" required><br>
+    <input type="text" name="skill" placeholder="Enter skills matched as per required " name="skill" required><br>
     
    
     
