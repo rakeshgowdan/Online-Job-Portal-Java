@@ -73,9 +73,9 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="UpdateProfile.jsp">View Applicants</a></p>
-      <p><a href="">View Companies</a></p>
-      <p><a href="">View Companies</a></p>
+      <p><a href="">View Applicants</a></p>
+      <p><form action="ApproveJobs" method="post"><a href="ApproveJobs">View All Applications</a></form></p>
+      <p><a href="">View All Jobs</a></p>
       
     </div>
     <div class="col-sm-8 text-left"> 
