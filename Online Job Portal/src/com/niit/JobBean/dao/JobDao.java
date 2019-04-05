@@ -111,14 +111,15 @@ public class JobDao {
 		
 	}
 
-public int updateApprove(String value) {
+public   int updateApprove(String jpost,String Company) {
 	try {
 		con=SqlConnection.dbConnector();
-		String Query="UPDATE appliedjobs SET Approved =? where jobId=? ";
-		String ID="";
+		String Query="UPDATE appliedjobs SET Approved =? where JobPost=? and CompanyName=? ";
+	    String approve="YES";
 		PreparedStatement st = con.prepareStatement(Query);
-		st.setString(1, value);
-		st.setString(2, ID);
+		st.setString(1, approve);
+		st.setString(2, jpost);
+		st.setString(3, Company);
 		int i = st.executeUpdate();
 		return i;
 	}

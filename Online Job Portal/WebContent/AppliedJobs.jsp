@@ -80,17 +80,10 @@ function myFunction() {
   }
 }
 
-function select(){
-
-
-
-
-	
-}
 </script>
 </HEAD>
 <BODY>
-<form action="UpdateApplications" method="post">
+
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Skills..">
 	<table border="1" width="500" align="center" id="myTable">
 		<tr class="header">
@@ -120,12 +113,11 @@ function select(){
 			<td><%=j.getApplied()%></td>
 			<td><%=j.getApproved()%></td>
 			<td hidden ><input type="text" name="jobid" value=<%=j.getId()%> readonly></td>
-			<td><input type="checkbox" name="Approved" value="YES" align="center"></td>
+			<td><form action="UpdateApplications" method="post"><a href="UpdateApplications?id=<%=j.getJobPost()%>&comp=<%=j.getCompanyName()%>">YES</a></form></td>
 		</tr>
 		<%}}%>
 	</table>
-	<div style="text-align:center;"><input type="button" value="APPROVE"></div>
+	<div style="text-align:center;"><input type="Submit" value="APPROVE"></div>	</form>
 
-	</form>
 </body>
 </html>
