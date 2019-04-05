@@ -27,9 +27,9 @@ public class CompanyLogin extends HttpServlet {
 		String s1=request.getParameter("mail");
 		String s2=request.getParameter("passwd");
 		
-		HttpSession s=request.getSession();
-		s.setAttribute("Mail",s1);
-		System.out.println(s.getAttribute("Mail"));
+		HttpSession session = request.getSession();
+		session.setAttribute("username", s1);
+		
 	
 		CompanyLoginDao dao=new CompanyLoginDao();
 		if(dao.validate(s1, s2)){response.sendRedirect("CompanyHomePage.jsp");}

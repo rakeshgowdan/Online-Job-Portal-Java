@@ -25,10 +25,10 @@ public class LogIn extends HttpServlet {
 		String pass = request.getParameter("password");
 		System.out.println(email);
 		System.out.println(pass);
+		  HttpSession session = request.getSession();
+			session.setAttribute("username", email);
 		LoginDao dao = new LoginDao();
 		if (dao.validate(email, pass)) {
-			HttpSession session = request.getSession();
-			session.setAttribute("EMAIL", email);
 			
 			if (email.equals("HR.admin@jobportal.com")) {
 				RequestDispatcher dd = request.getRequestDispatcher("Admin.jsp");
