@@ -1,5 +1,6 @@
 package com.niit.Credentials.dao;
 
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,26 +37,28 @@ public class EmployeeDAO {
 		return 0;
 	}
 
-	public static int update(Employee e,String Umail) {
+	public static int update(Employee e, String Umail) {
 		int status = 0;
 
-		
 		try {
 			System.out.println(Umail);
-		
+
 			con = SqlConnection.dbConnector();
-			PreparedStatement st = con.prepareStatement("UPDATE employee SET FirstName= ?, LastName=?, UserName=?, Password=?, Gender= ?, Expirence = ?,  Industry= ?, keySkills =? WHERE email =? ");
+			PreparedStatement st = con.prepareStatement(
+					"UPDATE employee SET FirstName= ?, LastName=?, UserName=?, Password=?, Gender= ?, Expirence = ?,  Industry= ?, keySkills =? WHERE email =? ");
 			st.setString(1, e.getUfname());
 			st.setString(2, e.getUlname());
 			st.setString(3, e.getUserName());
 			st.setString(4, e.getPassword());
-	
+
 			st.setString(6, e.getExp());
 			st.setString(7, e.getPI());
 			st.setString(8, e.getSkill());
 			st.setString(9, Umail);
 			status = st.executeUpdate();
-			if(status>0) {System.out.println("updated success");}
+			if (status > 0) {
+				System.out.println("updated success");
+			}
 			return status;
 		} catch (Exception e1) {
 			System.out.println(e1);
@@ -63,10 +66,9 @@ public class EmployeeDAO {
 		return 0;
 	}
 
-
 	public static Employee getEmployeeById(String Uemail) {
 		Employee e = new Employee();
-       System.out.println(e);
+		System.out.println(e);
 		try {
 			con = SqlConnection.dbConnector();
 			PreparedStatement ps = con.prepareStatement("select * from employee where  email=?");
@@ -82,7 +84,7 @@ public class EmployeeDAO {
 				e.setExp(rs.getString(7));
 				e.setPI(rs.getString(8));
 				e.setSkill(rs.getString(9));
-				
+
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -90,4 +92,25 @@ public class EmployeeDAO {
 		return e;
 	}
 
+	public  int uploadResume(String email,InputStream resume) {
+		
+			int status = 0;
+		try {
+			System.out.println(email);
+		
+			con = SqlConnection.dbConnector();
+			PreparedStatement st = con.prepareStatement("UPDATE employee SET resume=? WHERE email =?");
+			
+			st.setBlob(1, resume);
+			st.setString(2, email);
+			status = st.executeUpdate();
+		  return status;
+		  }
+		catch(Exception e) {System.out.println(e);}
+		
+		
+		return 0;
+		
+		
+	}
 }

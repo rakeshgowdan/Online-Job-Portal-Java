@@ -24,7 +24,7 @@ public class UpdateUser extends HttpServlet {
         PrintWriter out=response.getWriter();  
         out.println("<h1>Update Info</h1>");  
         HttpSession session=request.getSession(); 
-        String Umail=(String)session.getAttribute("EMAIL");
+        String Umail=(String)session.getAttribute("username");
       
           
         Employee e=EmployeeDAO.getEmployeeById(Umail);  

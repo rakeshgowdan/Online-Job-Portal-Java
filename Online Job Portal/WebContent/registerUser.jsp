@@ -3,15 +3,13 @@
 <!DOCTYPE>
 <HTML>
 <HEAD>
-<h3>
-	Candidate InformationPage :
-	<h3>
-
+<h3>Candidate InformationPage :</h3>
 		<TITLE>APPLICANT LOGIN PAGE</TITLE>
-		<link rel="shortcut icon" href="http://www.iconarchive.com/download/i47277/avosoft/warm-toolbar/user.ico">
-		<META content="text/html; charset=windows-1252"
-			http-equiv=Content-Type>
-		<META name=GENERATOR content="MSHTML 9.00.8080.16413">
+		<link rel="shortcut icon"
+			href="http://www.iconarchive.com/download/i47277/avosoft/warm-toolbar/user.ico">
+		
+	</h3>
+</h3>
 </HEAD>
 <BODY>
 	<form NAME="CREATEACCTFORM" action="RegisterUser" METHOD="post">
@@ -79,7 +77,7 @@
 					<td align="right" valign="top">Last name:</td>
 
 					<td valign="top"><input maxlength="24" size="30"
-						name="lastName" type="text" value="">
+						name="lastName" type="text" value=""></td>
 				</tr>
 
 
@@ -126,9 +124,9 @@
 				</tr>
 				<tr>
 					<td colspan="2" align="right" valign="top"
-						style="background: url(http://media.monsterindia.com/v2.1/dots.gif) repeat-x; padding: 0px;"><img
+						style='background: url(http://media.monsterindia.com/v2.1/dots.gif) repeat-x; padding: 0px;'><img
 						src="http://media.monsterindia.com/v2.1/trans.gif" width="1"
-						height="1" /></td>
+						height="1" alt="" /></td>
 				</tr>
 				<tr>
 
@@ -164,9 +162,9 @@
 				</tr>
 				<tr>
 					<td colspan="2" align="right" valign="top"
-						style="background: url(http://media.monsterindia.com/v2.1/dots.gif) repeat-x; padding: 0px;"><img
+						style='background: url(http://media.monsterindia.com/v2.1/dots.gif) repeat-x; padding: 0px;'><img
 						src="http://media.monsterindia.com/v2.1/trans.gif" width="1"
-						height="1" /></td>
+						height="1" alt="" /></td>
 
 				</tr>
 				<tr>
@@ -378,9 +376,9 @@
 
 				<tr>
 					<td colspan="2" align="right" valign="top"
-						style="background: url(http://media.monsterindia.com/v2.1/dots.gif) repeat-x; padding: 0px;"><img
+						style='background: url(http://media.monsterindia.com/v2.1/dots.gif) repeat-x; padding: 0px;'><img
 						src="http://media.monsterindia.com/v2.1/trans.gif" width="1"
-						height="1" /></td>
+						height="1" alt="" /></td>
 
 				</tr>
 
@@ -397,11 +395,14 @@
 								<td height="40" valign="bottom" class="bg_grey"><span
 									class="button"><span> <input type="submit"
 											name="submit1" value="Submit"></span></span></td>
-						</table> 
+							</tr>
+						</table>
 					</td>
 				</tr>
 			</table>
-			</form>
-			
+
+
+		</table>
+	</form>
 </body>
 </html>
