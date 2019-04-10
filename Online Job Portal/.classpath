@@ -24,6 +24,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="D:/JAR Files/javax.servlet-3.0.jar"/>
+	<classpathentry kind="lib" path="D:/JAR Files/Mysql jar/mysql-connector-java-5.1.38.jar"/>
+	<classpathentry kind="lib" path="D:/JAR Files/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/JAR Files/javax.servlet.jsp-api-2.3.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

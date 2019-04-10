@@ -1,6 +1,7 @@
 package com.niit.Credentials.dao;
 
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -107,10 +108,33 @@ public class EmployeeDAO {
 		  return status;
 		  }
 		catch(Exception e) {System.out.println(e);}
-		
-		
 		return 0;
-		
+		}
+	
+	public Blob downloadResume(String Email) {
+		try {
+			
+			System.out.println("download resume called");
+		System.out.println("DR1::"+Email);
+			con = SqlConnection.dbConnector();
+			PreparedStatement st = con.prepareStatement("select resume from employee where email=?");
+			st.setString(1, Email);
+			
+			ResultSet result = st.executeQuery();
+			System.out.println(result);
+			if(result.next()) {
+		    Blob EResume = result.getBlob("resume");
+		    System.out.println("DR2::"+Email);
+		    return EResume;
+			}
+		    
+		           
+			}
+		catch(Exception e) {
+			
+		}
+		return null;
+
 		
 	}
 }

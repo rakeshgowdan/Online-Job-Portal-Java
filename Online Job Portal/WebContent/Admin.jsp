@@ -42,6 +42,10 @@
       }
       .row.content {height:auto;} 
     }
+    
+a.two:link {color:#ff0000;}
+a.two:visited {color:#0000ff;}
+a.two:hover {font-size:150%;}
   </style>
 </head>
 <body>

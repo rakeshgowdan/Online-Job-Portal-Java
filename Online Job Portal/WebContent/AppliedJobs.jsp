@@ -12,6 +12,11 @@
 	href="http://www.iconarchive.com/download/i47277/avosoft/warm-toolbar/user.ico">
 	
 <style >
+
+a.two:link {color:#ff0000;}
+a.two:visited {color:#0000ff;}
+a.two:hover {font-size:150%;}
+
 #myInput {
   background-image: url('/css/searchicon.png'); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
@@ -95,6 +100,7 @@ function myFunction() {
 			<th style="width:60%;"><b>Skills</b></th>
 			<th style="width:60%;"><b>Applied</b></th>
 			<th style="width:60%;"><b>Approved</b></th>
+				<th style="width:60%;"><b>Resume</b></th>
 			<th hidden style="width:60%;"><b>JobId</b></th>
 			<th style="width:60%;"><b>Approve Applicant</b></th>
 		</tr>
@@ -112,12 +118,13 @@ function myFunction() {
 			<td><%=j.getSkills()%></td>
 			<td><%=j.getApplied()%></td>
 			<td><%=j.getApproved()%></td>
+			<td><form action="DownloadResume" method="post"><a  href="DownloadResume?id=<%=j.getEmail()%>">Download</a></form></td>
 			<td hidden ><input type="text" name="jobid" value=<%=j.getId()%> readonly></td>
-			<td><form action="UpdateApplications" method="post"><a href="UpdateApplications?id=<%=j.getJobPost()%>&comp=<%=j.getCompanyName()%>">YES</a></form></td>
+			<td><form action="UpdateApplications" method="post"><a class="two" href="UpdateApplications?id=<%=j.getJobPost()%>&comp=<%=j.getCompanyName()%>">YES</a></form></td>
 		</tr>
 		<%}}%>
 	</table>
-	<div style="text-align:center;"><input type="Submit" value="APPROVE"></div>	</form>
+<!--  	<div style="text-align:center;"><input type="Submit" value="APPROVE"></div>-->	</form>
 
 </body>
 </html>
