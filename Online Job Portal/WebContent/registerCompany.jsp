@@ -1,77 +1,75 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import = "java.sql.*"%>
-<!DOCTYPE>
-<HTML><HEAD>
-<h3>Company Information Page : 
-</h3>
+<!DOCTYPE html>
 
-<TITLE>Company Register</TITLE>
-<link rel="shortcut icon" href="http://www.iconarchive.com/download/i47277/avosoft/warm-toolbar/user.ico">
-<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
-<META name=GENERATOR content="MSHTML 9.00.8080.16413"></HEAD>
-<BODY >
-<form NAME="CREATEACCTFORM" action="RegisterCompany"  METHOD="POST" >
-<table width="780" border="0" align="center" cellpadding="0" cellspacing="0">
-	<table width="100%" border="0" cellpadding="7" cellspacing="0" class="bg_white">
-	  <tr>
-		  <td colspan="2" align="right" valign="top" class="border_green_btm bg_grey" style="padding:0px 10px 0px 0px;"><span class="txt_orange">*</span> Required fields</td>
-		</tr>
-<tr>
-				<td width="400" align="right" bgcolor="#736AFF">Required Information</td>
-			</tr>
-<tr>
-				<td align="right" valign="top"><span class="txt_orange">*</span>Company Name:</td>
-				<td valign="top"  ><input maxlength="255" size="30" name="username"   onFocus="hintEvent('UNAME');"  onblur="hintEvent('UNAME', 'HIDE');" type="text" value="">
-					<div id="UNAME" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>
-					<div id="ERR_UNAME" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
-				</td>
-			  </tr>
-			  <tr>
-				<td align="right" valign="top"><span class="txt_orange">*</span> Choose a password: </td>
-				<td valign="top"  >
-				<input maxlength="32" size="30"  name="passwd" type="password" value="">
-				<div id="PASS" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>
-				<div id="ERR_PASS" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
-				</td>
-			</tr>
-			  <tr>
-				<td align="right" valign="top"><span class="txt_orange">*</span> Re-enter password: </td>
-				<td valign="top"  >
-				<input name="passwd_temp"   size="30" maxlength="32" type="password"  value="">
-				<div id="PASS_TEMP" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>
-				<div id="ERR_PASS_TEMP" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
-				</td>
-			</tr>
-			<tr>
-				<td align="right" valign="top"><span class="txt_orange">* </span>
-				Web address: </td>
-				<td  >
-				<table cellspacing="0" cellpadding="0" border="0" id="currentloc_border">
-				<tr><td>
-				<input type="text" name="web" value="">
-				</table>
-					 </td>
-			</tr>
-			<tr>
-				<td align="right" valign="top"><span class="txt_orange">* </span>
-				Email address: </td>
-				<td  >
-				<table cellspacing="0" cellpadding="0" border="0" id="currentloc_border">
-				<tr><td>
-				<input type="text" name="mail" value="">
-				</table>
-				</td>
-			    </tr>
-	<table width="350" border="0" cellpadding="0" cellspacing="0">
-				<tr><td valign="bottom" class="bg_grey" >&nbsp;</td>
-                <td height="40" valign="bottom" ><span class="button"><span>
-				<input type="submit" name="submit1"  value="Submit"></span></span>
-				<button type="reset" value="Reset">Reset</button>
-				</td>
-</table>
-</table>
-</form>
-</table>
-</form>
+<!-- Daily UI day 1 -->
+<!-- Would potentially make a good modal -->
+<!-- TODO: style error message when required info is left off -->
+
+<head>
+<meta charset="utf-8">
+<title>Company Registration Page</title>
+<style>    
+body {
+	background: url("http://i1308.photobucket.com/albums/s602/lysautumn/Elegant_Background-1_zpsid9u5iuq.jpg");
+	background-size: cover;
+}
+#signup {
+	padding-top: 50px;
+}
+h1, p {
+	text-align: center;
+	color: #1a1a1a;
+}
+h1 {
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 40px;
+	line-height: 10px;
+}
+p {
+	font-family:'Open Sans', sans-serif;
+}
+#container {
+	width: 400px;
+	height: 400px;
+	background-color: #7F7979;
+	margin: auto;
+	border-radius: 10px;
+}
+form {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	padding-top: 50px;
+}
+input {
+	width: 75%;
+	padding: 15px;
+	margin: 8px 0;
+	border-radius: 5px;
+}
+input[type=submit] {
+	width: 50%;
+	background-color: #FFE066;
+	border: none;
+	color: #1a1a1a;
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="signup">
+<h1>Register!</h1>
+<p>Welcome!!</p>
+<div id="container">
+	<form action="RegisterCompany" method="post">
+			<input type="email" placeholder="E-mail Id" name="mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br />
+			<input type="text" placeholder="Company Name" name="username" required><br />
+			<input type="text" placeholder="Web-Address" name="web" required><br />
+			<input type="password" placeholder="Password" name=passwd pattern=".{6,}" required><br />
+			<input type="submit" value="submit">
+	</form>
+</div>
+</div>
 </body>
 </html>

@@ -26,24 +26,13 @@ public class DownloadResume extends HttpServlet {
 		String email=request.getParameter("id");
 		System.out.println(email);
 		EmployeeDAO d=new EmployeeDAO();
-		
-
-        // abc.txt => text/plain
-        // abc.zip => application/zip
-        // abc.pdf => application/pdf
-        
-
 		try {
-		  // For big BLOB data.
         Blob fileData = d.downloadResume(email);
-        
         String contentType = this.getServletContext().getMimeType("resume");
         System.out.println("Content Type: " + contentType);
-
+        response.setContentType("APPLICATION/OCTET-STREAM");   
         response.setHeader("Content-Type", contentType);
-
         response.setHeader("Content-Length", String.valueOf(fileData.length()));
-
         response.setHeader("Content-Disposition", "inline; filename=\"" +" resume"+ "\"");
         System.out.println(fileData);
         if(fileData!=null) {
@@ -57,8 +46,6 @@ public class DownloadResume extends HttpServlet {
         }
         is.close();
         }
-        
-        
 		}
 		catch(SQLException e) { System.out.println(e);}
 	}

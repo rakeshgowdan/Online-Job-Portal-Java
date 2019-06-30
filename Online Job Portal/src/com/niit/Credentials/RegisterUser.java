@@ -36,7 +36,8 @@ public class RegisterUser extends HttpServlet {
 	 	
 	 	EmployeeDAO dao=new EmployeeDAO();
 	 	if(dao.save(Uemail,Ufname,Ulname,UserName,Password,gen,exp,PI,skill)==1) {
-	 		response.sendRedirect("HomePage.html");
+	 		p.println("<script>alert('User Registered  Successfully.')</script>");
+			response.setHeader("Refresh", "1;HomePage.html");
 	 	}else {
 	 		p.println("<script type=\"text/javascript\">"); 
 			p.println("alert(\"Registration failed\")");

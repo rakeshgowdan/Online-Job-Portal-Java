@@ -16,11 +16,12 @@ public class UpdatedUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("Updated user Servlet called");
 		response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
         HttpSession session=request.getSession(); 
         String Umail=(String)session.getAttribute("EMAIL");
-          
+          System.out.println(Umail);
         String Uemail = request.getParameter("E-mail");
 	 	String Ufname = request.getParameter("FirstName");
 	 	String Ulname = request.getParameter("LastName");
@@ -41,7 +42,7 @@ public class UpdatedUser extends HttpServlet {
         e.setExp(exp);
         e.setPI(PI);
         e.setSkill(skill);
-          
+          System.out.println("Updated user info:: "+e);
         int status=EmployeeDAO.update(e,Umail);  
         if(status>0){   response.sendRedirect("ApplicantPage.jsp");  }
         else{  out.println("Sorry! unable to update Deatils"); }  

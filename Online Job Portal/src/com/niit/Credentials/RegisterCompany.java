@@ -29,10 +29,14 @@ public class RegisterCompany extends HttpServlet {
 			String s4=request.getParameter("mail");
 			if(s1!=null && s2!=null && s3!=null )
 			{
-				if(dao.update(s1,s2,s3,s4)==1) {response.sendRedirect("CompanyLogin.jsp");}
-				else {p.println("<script type=\"text/javascript\">"); 
-				p.println("alert(\"Registration failed\")");
-				p.println("</script>");
+				if(dao.update(s1,s2,s3,s4)==1) {
+					p.println("<script>alert('Registration Successfull.')</script>");
+				response.setHeader("Refresh","1;CompanyLogin.jsp");
+				}
+				else {
+					p.println("<script type=\"text/javascript\">"); 
+					p.println("alert(\"Registration failed\")");
+					p.println("</script>");
 					 }
 			}
 	}

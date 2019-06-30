@@ -23,13 +23,18 @@ public class LogIn extends HttpServlet {
 		response.setContentType("text/html");
 		String email = request.getParameter("email");
 		String pass = request.getParameter("password");
+		HttpSession session = request.getSession();
 		System.out.println(email);
 		System.out.println(pass);
-		  HttpSession session = request.getSession();
-			session.setAttribute("username", email);
+		 
 		LoginDao dao = new LoginDao();
 		if (dao.validate(email, pass)) {
 			
+			//Session Creation
+			 
+			session.setAttribute("username", email);
+			
+			//role-check
 			if (email.equals("HR.admin@jobportal.com")) {
 				RequestDispatcher dd = request.getRequestDispatcher("Admin.jsp");
 				dd.forward(request, response);
@@ -39,12 +44,10 @@ public class LogIn extends HttpServlet {
 			}
 
 		} else if (email != "" && pass != "") {
-			RequestDispatcher d = request.getRequestDispatcher("/HomePage.html");
-			p.println("<script type=\"text/javascript\">");
-			p.println("alert('Incorrect LogIn ID');");
-			p.println("</script>");
-
-			d.include(request, response);
+			
+            request.setAttribute("errorValue", "False");
+            RequestDispatcher rd = request.getRequestDispatcher("Error");
+            rd.forward(request, response);
 
 		} else {
 			RequestDispatcher d = request.getRequestDispatcher("HomePage.html");

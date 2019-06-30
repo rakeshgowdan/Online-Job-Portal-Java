@@ -19,8 +19,9 @@ public class EmployeeDAO {
 			String exp, String PI, String skill) {
 		try {
 			con = SqlConnection.dbConnector();
-			String query = "INSERT INTO employee VALUES (?,?,?,?,?,?,?,?,?)";
+			String query = "insert into employee values(?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement st = con.prepareStatement(query);
+			
 			st.setString(1, Uemail);
 			st.setString(2, Ufname);
 			st.setString(3, Ulname);
@@ -30,9 +31,10 @@ public class EmployeeDAO {
 			st.setString(7, exp);
 			st.setString(8, PI);
 			st.setString(9, skill);
+			st.setString(10, null);
 			int i = st.executeUpdate();
 			return i;
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println(e);
 		}
 		return 0;
@@ -51,7 +53,7 @@ public class EmployeeDAO {
 			st.setString(2, e.getUlname());
 			st.setString(3, e.getUserName());
 			st.setString(4, e.getPassword());
-
+            st.setString(5, e.getGen());
 			st.setString(6, e.getExp());
 			st.setString(7, e.getPI());
 			st.setString(8, e.getSkill());
@@ -69,7 +71,7 @@ public class EmployeeDAO {
 
 	public static Employee getEmployeeById(String Uemail) {
 		Employee e = new Employee();
-		System.out.println(e);
+	
 		try {
 			con = SqlConnection.dbConnector();
 			PreparedStatement ps = con.prepareStatement("select * from employee where  email=?");
@@ -85,6 +87,7 @@ public class EmployeeDAO {
 				e.setExp(rs.getString(7));
 				e.setPI(rs.getString(8));
 				e.setSkill(rs.getString(9));
+				System.out.println("Get emp by id"+e);
 
 			}
 		} catch (Exception ex) {

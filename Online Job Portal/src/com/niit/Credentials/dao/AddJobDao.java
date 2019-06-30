@@ -2,24 +2,49 @@ package com.niit.Credentials.dao;
 
 import java.sql.* ;
 
+import com.niit.SqlConnect.SqlConnection;
+
 public class AddJobDao {
 	
 	Connection con=null;
-	public int update(String s1,String s2,String s3,String s4,String s5,String s6,String s7,String s8,String s9) {
-		String query="INSERT INTO jobs (`Location`,`Functional Area`,`Job Post`,`Vacany`,`Salary`,`Interview Data`,`InterView Time`,`Interview Place`.`skills`) VALUES(?,?,?,?,?,?,?,?,?);";	
+	public int update(String loc,String area,String jobpost,String vac,String salary,String ivdt,String ivt,String ivtp,String skill,String mail) {
+		System.out.println("Update Started");
+		System.out.println(loc+""+area+""+jobpost+""+vac+""+salary+""+ivdt+""+ivt+""+skill+""+mail);
+		con=SqlConnection.dbConnector();
+		String query="insert into jobpost values(?,?,?,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement st= con.prepareStatement(query);
-			st.setString(1,s1);
-			st.setString(2,s2);
-			st.setString(3,s3);
-			st.setString(4,s4);
-			st.setString(5,s5);
-			st.setString(6,s6);
-			st.setString(7,s7);
-			st.setString(8,s8);
+			System.out.println("PST set");
+			st.setString(1,loc);
+			st.setString(2,area);
+			st.setString(3,jobpost);
+			st.setString(4,vac);
+			st.setString(5,salary);
+			st.setString(6,ivdt);
+			st.setString(7,ivt);
+			st.setString(8,ivtp);
+			st.setString(9,skill);
+			st.setString(10, mail);
+			System.out.println("pst done");
 			int i=st.executeUpdate();
-			return 1;
-		} catch (SQLException e) {e.printStackTrace();}
+			System.out.println("added job::DAo.update");
+			return i;
+		} catch (SQLException e) {System.out.println(e);System.out.println("something went wrong");}
 		return 0;
 	}
+
+
+/*public void AddJobToDB(String loc,String area,String jobpost,String vac,String salary,String ivdt,String ivt,String ivtp,String skill,String mail) {
+	System.out.println("AddJobToDB Called");
+	System.out.println(loc+""+area+""+jobpost+""+vac+""+salary+""+ivdt+""+ivt+""+skill+""+mail);
+	
+	String Query="INSERT INTO jobpost (`location`,`FunctionalArea`,`jobpost`,`vacany`,`salary`,`interviewDate`,`interviewTime`,`interviewPlace`,`Skill`,`email`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+	
+	try {
+		PreparedStatement pst=con
+		
+	}
+	catch(SQLException e) {System.out.println(e);	System.out.println("something went wrong");}
+	
+}*/
 }

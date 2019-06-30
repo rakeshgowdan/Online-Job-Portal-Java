@@ -32,8 +32,11 @@ public class CompanyLogin extends HttpServlet {
 		
 	
 		CompanyLoginDao dao=new CompanyLoginDao();
+		session.setAttribute("status", false);
 		if(dao.validate(s1, s2)){response.sendRedirect("CompanyHomePage.jsp");}
-		else{response.sendRedirect("CompanyLogin.html");}
+		else{
+			p.println("<script>alert('Login fail.')</script>");
+			response.setHeader("Refresh","1;CompanyLogin.jsp");}
 		
 	}
 
