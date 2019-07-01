@@ -44,7 +44,7 @@ public class EmployeeDAO {
 		int status = 0;
 
 		try {
-			System.out.println(Umail);
+			System.out.println("mail from DAO"+Umail);
 
 			con = SqlConnection.dbConnector();
 			PreparedStatement st = con.prepareStatement(

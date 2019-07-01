@@ -20,8 +20,8 @@ public class UpdatedUser extends HttpServlet {
 		response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
         HttpSession session=request.getSession(); 
-        String Umail=(String)session.getAttribute("EMAIL");
-          System.out.println(Umail);
+        String Umail=(String)session.getAttribute("username");
+          System.out.println("Email SO :: "+Umail);
         String Uemail = request.getParameter("E-mail");
 	 	String Ufname = request.getParameter("FirstName");
 	 	String Ulname = request.getParameter("LastName");

@@ -24,8 +24,8 @@ public class LogIn extends HttpServlet {
 		String email = request.getParameter("email");
 		String pass = request.getParameter("password");
 		HttpSession session = request.getSession();
-		System.out.println(email);
-		System.out.println(pass);
+		System.out.println("Mail id "+email);
+		System.out.println("Password "+pass);
 		 
 		LoginDao dao = new LoginDao();
 		if (dao.validate(email, pass)) {
