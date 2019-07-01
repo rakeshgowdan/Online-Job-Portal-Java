@@ -102,7 +102,8 @@ public class JobDao {
 				t.setSkills(resultSet.getString("Skills"));
 				t.setApplied(resultSet.getString("Applied"));
 				t.setApproved(resultSet.getString("Approved"));
-				t.setId(resultSet.getString("jobId"));
+				//t.setId(resultSet.getString("jobId"));
+				System.out.println(t);
 			    TA.add(t);
 			}
 		   return TA;

@@ -20,16 +20,18 @@ public class UpdateApplications extends HttpServlet {
 	  
 		String Jpost=request.getParameter("id");
 		String Company=request.getParameter("comp");
+		System.out.println(Jpost);
+		System.out.println(Company);
 		PrintWriter p = response.getWriter();
 		JobDao d=new JobDao();
 		if(d.updateApprove(Jpost, Company)==1) {
-			response.sendRedirect("Admin.jsp");
+			p.println("<script>alert('Approve  Successfully.')</script>");
+			response.setHeader("Refresh", "1;Admin.jsp");
 		}
 		else
 		{
-			p.println("<script type=\"text/javascript\">"); 
-			p.println("alert(\"Registration failed\")");
-			p.println("</script>");
+			p.println("<script>alert('Approve failed')</script>");
+			response.setHeader("Refresh", "1;AppliedJobs.jsp");
 		}
 	}
 

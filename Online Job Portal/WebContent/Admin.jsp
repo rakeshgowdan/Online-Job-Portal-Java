@@ -78,7 +78,7 @@ a.two:hover {font-size:150%;}
   <div class="row content">
     <div class="col-sm-2 sidenav">
       <p><a href="">View Applicants</a></p>
-      <p><form action="ApproveJobs" method="post"><a href="ApproveJobs">View All Applications</a></form></p>
+      <p><form action="ApproveJobs" method="post"><a href="ApproveJobs">View All Job Applications</a></form></p>
       <p><a href="">View All Jobs</a></p>
       
     </div>
