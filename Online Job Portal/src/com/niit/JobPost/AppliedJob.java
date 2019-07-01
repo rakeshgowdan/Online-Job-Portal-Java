@@ -22,6 +22,8 @@ public class AppliedJob extends HttpServlet {
 		
 		String Jpost=request.getParameter("id");
 		String Company=request.getParameter("comp");
+		System.out.println("id"+Jpost);
+		System.out.println("c-mail"+Company);
 		try {Job Ajobs =JobDao.applylist(Jpost, Company);
 		 request.setAttribute("ApplyJobList",Ajobs);
 		 request.getRequestDispatcher("Apply.jsp").forward(request, response);

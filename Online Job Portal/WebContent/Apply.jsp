@@ -76,7 +76,7 @@ a {
     <hr>
 
 
-    <label ><b>Company Name</b></label>
+    <label ><b>Company mail</b></label>
     <input type="text"  name="Cname"  value="${ApplyJobList.company}" readonly><br>
     
      <label ><b>Job Post</b></label>

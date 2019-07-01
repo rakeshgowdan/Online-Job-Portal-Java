@@ -21,7 +21,7 @@ public class JobDao {
 		try {
 			con = SqlConnection.dbConnector();
 			Statement statement = con.createStatement();
-			ResultSet resultSet = statement.executeQuery("select * from jobs");
+			ResultSet resultSet = statement.executeQuery("select * from jobpost");
 
 			while (resultSet.next()) {
 				Job j = new Job();
@@ -30,11 +30,11 @@ public class JobDao {
 				j.setJpost(resultSet.getString("JobPost"));
 				j.setVacancy(resultSet.getInt("Vacany"));
 				j.setSalary(resultSet.getString("Salary"));
-				j.setIdate(resultSet.getString("Interview Data"));
-				j.setItime(resultSet.getString("Interview Time"));
-				j.setIplace(resultSet.getString("Interview Place"));
-				j.setSkills(resultSet.getString("Skills"));
-				j.setCompany(resultSet.getString("CompanyName"));
+				j.setIdate(resultSet.getString("interviewDate"));
+				j.setItime(resultSet.getString("interviewTime"));
+				j.setIplace(resultSet.getString("interviewPlace"));
+				j.setSkills(resultSet.getString("Skill"));
+				j.setCompany(resultSet.getString("email"));
 				jobs.add(j);
 				
 			}
@@ -46,15 +46,15 @@ public class JobDao {
 	public  static Job applylist(String post,String company) throws SQLException {
 		try {
 			con = SqlConnection.dbConnector();
-			PreparedStatement  statement = con.prepareStatement("select * from jobs where JobPost=? and CompanyName=?");
+			PreparedStatement  statement = con.prepareStatement("select * from jobpost where JobPost=? and email=?");
 			statement.setString(1, post);
 			statement.setString(2, company);
 			ResultSet resultSet = statement.executeQuery();
 			
 			Job j = new Job();
 			while (resultSet.next()) {
-				j.setJpost(resultSet.getString("JobPost"));
-				j.setCompany(resultSet.getString("CompanyName"));
+				j.setJpost(resultSet.getString("jobpost"));
+				j.setCompany(resultSet.getString("email"));
 			
 			}
 			return j;

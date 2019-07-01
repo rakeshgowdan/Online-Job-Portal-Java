@@ -68,11 +68,6 @@ function myFunction() {
 }
 
 function select(){
-
-
-
-
-	
 }
 </script>
 </HEAD>
@@ -89,7 +84,7 @@ function select(){
 			<th style="width:60%;"><b>Interview time</b></th>
 			<th style="width:60%;"><b>Interview place</b></th>
 			<th style="width:60%;"><b>Skills</b></th>
-			<th style="width:60%;"><b>Company</b></th>
+			<th style="width:60%;"><b>Company-Mail</b></th>
 			<th style="width:60%;"><b>Apply</b></th>
 		</tr>
 		<%

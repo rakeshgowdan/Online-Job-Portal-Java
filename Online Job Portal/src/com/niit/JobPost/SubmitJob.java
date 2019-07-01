@@ -29,13 +29,11 @@ public class SubmitJob extends HttpServlet {
 		JobDao d=new JobDao();
 		PrintWriter p = response.getWriter();
 		if(d.applyToJob(CompanyName,JobPost,Email,FullName,MobileNo,Skills)==1) {
-	 		response.sendRedirect("ApplicantPage.jsp");
-	 		JOptionPane.showMessageDialog(null,"Applied Successfully");
+			p.println("<script>alert('Applied To Job  Successfully.')</script>");
+			response.setHeader("Refresh", "1;ApplicantPage.jsp");
 	 	}else {
-	 		p.println("<script type=\"text/javascript\">"); 
-			p.println("alert(\"Job Apply failed\")");
-			p.println("</script>");
-			response.sendRedirect("ApplicantPage.jsp");
+	 		p.println("<script>alert('Failed to Apply!! Try Again..')</script>");
+	 		response.setHeader("Refresh", "1;ApplicantPage.jsp");
 	 		
 	 	}
 	}
