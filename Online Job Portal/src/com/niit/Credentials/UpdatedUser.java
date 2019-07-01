@@ -44,8 +44,14 @@ public class UpdatedUser extends HttpServlet {
         e.setSkill(skill);
           System.out.println("Updated user info:: "+e);
         int status=EmployeeDAO.update(e,Umail);  
-        if(status>0){   response.sendRedirect("ApplicantPage.jsp");  }
-        else{  out.println("Sorry! unable to update Deatils"); }  
+        if(status>0){ 
+        out.println("<script>alert('Profile Updated Successfully.')</script>");
+		response.setHeader("Refresh", "1;ApplicantPage.jsp");
+        }
+        else{  
+        out.println("<script>alert('Sorry! unable to update Deatils')</script>");
+        response.setHeader("Refresh", "1;ApplicantPage.jsp");
+        }  
         out.close();  
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {doGet(request, response);}

@@ -13,6 +13,7 @@ import javax.servlet.http.Part;
 import com.niit.Credentials.dao.EmployeeDAO;
 
 import java.io.InputStream;
+import java.io.PrintWriter;
 @WebServlet("/UploadResume")
 @MultipartConfig(maxFileSize = 16177215)    // upload file's size up to 16MB
 public class UploadResume extends HttpServlet {
@@ -20,8 +21,8 @@ public class UploadResume extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		System.out.println("servlet called");
+		   PrintWriter out=response.getWriter();  
+		System.out.println(" Upload Resume servlet called");
 		 HttpSession session=request.getSession(); 
 	     String email=(String)session.getAttribute("username");
 		InputStream inputStream = null; // input stream of the upload file
@@ -39,7 +40,9 @@ public class UploadResume extends HttpServlet {
             EmployeeDAO d=new EmployeeDAO();
             if(d.uploadResume(email, inputStream)==1)
             {
-            	response.sendRedirect("ApplicantPage.jsp");    	
+              	
+            	 out.println("<script>alert('Resume Uploaded Successfully.')</script>");
+         		response.setHeader("Refresh", "1;ApplicantPage.jsp");
             }
             
         }
