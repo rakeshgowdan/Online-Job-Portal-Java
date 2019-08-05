@@ -23,7 +23,7 @@ public class LogIn extends HttpServlet {
 		response.setContentType("text/html");
 		String email = request.getParameter("email");
 		String pass = request.getParameter("password");
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(false);
 		System.out.println("Mail id "+email);
 		System.out.println("Password "+pass);
 		 

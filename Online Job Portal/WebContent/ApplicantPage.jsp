@@ -269,8 +269,8 @@ a.two:hover {font-size:150%;}
 					response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate"); //http1.1
 					response.setHeader("pragma", "no-cache");//http 1.0
 					response.setHeader("Expires", "0");//proxy
-
-					if (session.getAttribute("username") == null) {
+                    System.out.println("session"+session.getAttribute("username"));
+				if(session != null ) {
 						response.sendRedirect("HomePage.html");
 					}
 				%>

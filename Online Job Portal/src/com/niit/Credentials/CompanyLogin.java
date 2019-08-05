@@ -27,7 +27,7 @@ public class CompanyLogin extends HttpServlet {
 		String s1=request.getParameter("mail");
 		String s2=request.getParameter("passwd");
 		
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(false);
 		session.setAttribute("username", s1);
 		
 	

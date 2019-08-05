@@ -34,7 +34,7 @@ public class AddJob extends HttpServlet {
 		String s7 = request.getParameter("ivt");
 		String s8 = request.getParameter("ivp");
 		String s9 = request.getParameter("skill");
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(false);
 		String s10 = (String) session.getAttribute("username");
 		System.out.println(s10);
 		System.out.println(s1 + "" + s2 + "" + s3 + "" + s4 + "" + s5 + "" + s6 + "" + s7 + "" + s8 + "" + s9);
